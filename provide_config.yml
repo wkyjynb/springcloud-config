@@ -1,0 +1,70 @@
+spring:
+  profiles: 
+    active: dev
+---
+server:
+  port: 8001
+
+#mybatis配置
+mybatis:
+  type-aliases-package: com.shkj.pojo
+  mapper-locations: classpath:/mapper/*.xml
+
+#spring的配置
+spring:
+  profiles: dev
+  application:
+    name: provide
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/authentication?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: root
+    password: root
+
+#Eureka的注册，服务注册到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: provide-8001  #修改Eureka上的默认描述信息
+    prefer-ip-address: true
+
+#info配置
+info:
+  app.name: lwl-springcloud
+  company.name: blog.lwlstudy.com
+  
+---
+server:
+  port: 8001
+
+#mybatis配置
+mybatis:
+  type-aliases-package: com.shkj.pojo
+  mapper-locations: classpath:/mapper/*.xml
+
+#spring的配置
+spring:
+  profiles: test
+  application:
+    name: provide
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/authentication?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: root
+    password: root
+
+#Eureka的注册，服务注册到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: provide-8001  #修改Eureka上的默认描述信息
+    prefer-ip-address: true
+
+#info配置
+info:
+  app.name: lwl-springcloud
+  company.name: blog.lwlstudy.com
